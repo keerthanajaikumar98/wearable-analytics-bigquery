@@ -1,0 +1,19 @@
+# Data files (too large for GitHub)
+data/raw/
+*.csv
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.env
+
+# BigQuery credentials
+*.json
+!schemas/*.json
+
+# OS
+.DS_Store
+Thumbs.db
