@@ -26,7 +26,7 @@ WITH data_quality AS (
     
   FROM `wearable_analytics.fact_physiological_measurements` pm
   JOIN `wearable_analytics.dim_subjects` s ON pm.subject_id = s.subject_id
-  WHERE pm.measurement_timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 365 DAY)
+  WHERE pm.measurement_timestamp >= "2010-01-01"
   GROUP BY s.cohort
 ),
 stress_metrics AS (
