@@ -20,7 +20,7 @@ WITH ibi_data AS (
   FROM `wearable_analytics.fact_physiological_measurements`
   WHERE signal_type = 'IBI'
     AND value BETWEEN 300 AND 2000  -- Filter physiologically plausible values (30-200 bpm)
-    AND measurement_timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 365 DAY)  -- Partition filter
+    AND measurement_timestamp >=  "2010-01-01"  -- Partition filter
 ),
 hrv_windows AS (
   -- Calculate HRV metrics in 1-minute windows

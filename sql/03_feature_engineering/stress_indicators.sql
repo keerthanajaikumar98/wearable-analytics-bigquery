@@ -27,7 +27,7 @@ WITH signal_pivoted AS (
     
   FROM `wearable_analytics.fact_physiological_measurements`
   WHERE signal_type IN ('EDA', 'TEMP', 'HR')
-    AND measurement_timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 365 DAY)  -- Partition filter
+    AND measurement_timestamp >=  "2010-01-01"
   GROUP BY subject_id, session_id, session_type, time_window
 ),
 baseline_stats AS (
@@ -44,9 +44,19 @@ baseline_stats AS (
     ON sp.session_id = ds.session_id
   WHERE TIMESTAMP_DIFF(sp.time_window, ds.session_start_time, MINUTE) <= 3
   GROUP BY sp.subject_id
+  HAVING baseline_eda IS NOT NULL  -- Moved filter to HAVING clause
 )
 SELECT 
-  sp.*,
+  sp.subject_id,
+  sp.session_id,
+  sp.session_type,
+  sp.time_window,
+  sp.avg_eda,
+  sp.avg_temp,
+  sp.avg_hr,
+  sp.hr_std,
+  sp.eda_std,
+  sp.eda_range,
   
   -- Baseline values
   bs.baseline_eda,
@@ -59,12 +69,11 @@ SELECT
   sp.avg_temp - bs.baseline_temp as temp_delta_celsius,
   
   -- Composite stress index (weighted combination of indicators)
-  -- Higher values indicate higher stress
   (
     0.4 * SAFE_DIVIDE(sp.avg_eda - bs.baseline_eda, bs.baseline_eda) +
     0.3 * SAFE_DIVIDE(sp.avg_hr - bs.baseline_hr, bs.baseline_hr) +
-    0.2 * (sp.avg_temp - bs.baseline_temp) / 2.0 +  -- Temp typically rises 1-2°C under stress
-    0.1 * (1 - SAFE_DIVIDE(sp.hr_std, 100))  -- Lower HRV = higher stress
+    0.2 * (sp.avg_temp - bs.baseline_temp) / 2.0 +
+    0.1 * (1 - SAFE_DIVIDE(sp.hr_std, 100))
   ) as stress_index,
   
   -- Binary stress classification
@@ -77,7 +86,6 @@ SELECT
   END as stress_state
   
 FROM signal_pivoted sp
-LEFT JOIN baseline_stats bs 
+INNER JOIN baseline_stats bs  -- Changed to INNER JOIN
   ON sp.subject_id = bs.subject_id
-WHERE bs.baseline_eda IS NOT NULL  -- Ensure we have baseline data
 ORDER BY sp.subject_id, sp.time_window;

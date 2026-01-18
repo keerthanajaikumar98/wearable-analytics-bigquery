@@ -15,7 +15,7 @@ WITH base AS (
     AVG(value) OVER (PARTITION BY signal_type) AS signal_avg,
     STDDEV(value) OVER (PARTITION BY signal_type) AS signal_stddev
   FROM `wearable_analytics.fact_physiological_measurements`
-  WHERE measurement_timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 180 DAY)
+  WHERE measurement_timestamp >=  "2010-01-01"
 ),
 flagged AS (
   SELECT

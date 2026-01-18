@@ -52,7 +52,7 @@ hr_with_zones AS (
   WHERE pm.signal_type = 'HR'
     AND pm.session_type IN ('AEROBIC', 'ANAEROBIC')  -- Only exercise sessions
     AND pm.value BETWEEN 40 AND 220  -- Physiologically plausible
-    AND pm.measurement_timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 365 DAY)  -- Partition filter
+    AND pm.measurement_timestamp >=  "2010-01-01"  -- Partition filter
 )
 SELECT 
   *,
