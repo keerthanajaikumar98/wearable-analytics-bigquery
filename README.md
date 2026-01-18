@@ -8,24 +8,24 @@
 
 > Advanced BigQuery analytics pipeline for wearable physiological data, demonstrating PM expertise in data architecture, product analytics, and cost optimization. Built to showcase technical depth for Product Manager roles at companies like Myzone, Whoop, Oura, and Hydrow.
 
-**🎯 Business Context:** Wearable fitness companies need to classify user states (stress, recovery, exercise intensity) to deliver personalized coaching. This project demonstrates end-to-end data analytics pipeline design, from raw sensor data to actionable product insights.
+**Business Context:** Wearable fitness companies need to classify user states (stress, recovery, exercise intensity) to deliver personalized coaching. This project demonstrates end-to-end data analytics pipeline design, from raw sensor data to actionable product insights.
 
 ---
 
-## 📊 Project Highlights
+##Project Highlights
 
 | Metric | Achievement |
 |--------|-------------|
 | **Data Volume** | ~50M measurements across 97 sessions |
-| **Query Performance** | 1-5 seconds (100x faster than unoptimized) |
-| **Cost Optimization** | 99% reduction ($50/mo → $0/mo) |
 | **Data Model** | Star schema with partitioning & clustering |
 | **Feature Engineering** | HRV, stress detection, exercise zones |
 | **User Segmentation** | 6 personas with feature recommendations |
+| **Query Performance** | 1-5 seconds (100x faster than unoptimized) |
+| **Cost Optimization** | 99% reduction ($50/mo → $0/mo) |
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### System Overview
 ```
@@ -53,27 +53,27 @@ Business Insights & Dashboards
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### 1️⃣ Production-Grade Data Model
+### Production-Grade Data Model
 - **Star schema** optimized for analytical queries
 - **Partitioned by date** for 95%+ cost savings
 - **Clustered** by access patterns (subject, session, signal)
 - **50M+ measurements** with sub-second query times
 
-### 2️⃣ Advanced Feature Engineering
+### Feature Engineering
 - **Heart Rate Variability (HRV)**: SDNN, RMSSD, pNN50 for stress/recovery
 - **Multi-Signal Stress Detection**: EDA + HR + Temperature fusion
 - **Exercise Zone Classification**: 6 zones like Myzone's MEPs system
 - **Real-time aggregations** in 1-minute windows
 
-### 3️⃣ Product Analytics
+### Product Analytics
 - **Recovery Time Analysis**: How long to recover from intense exercise?
 - **Stress Profiling**: Who's a fast reactor vs. good recoverer?
 - **User Segmentation**: 6 personas (Athlete, Beginner, Stress-Focused, etc.)
 - **Cohort Analysis**: V1 vs V2 protocol comparison
 
-### 4️⃣ Cost Optimization
+### Cost Optimization
 - **$0/month** operating cost (free tier utilization)
 - **100x query performance** improvement
 - **Automated cost monitoring** and alerts
@@ -81,12 +81,12 @@ Business Insights & Dashboards
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 ```
 wearable-analytics-bigquery/
 ├── README.md                          # This file
 ├── data/
-│   ├── raw/                           # PhysioNet dataset (not in git)
+│   ├── raw/                           # PhysioNet dataset (not in git - the dataset can be found in this [link](https://physionet.org/content/wearable-device-dataset/1.0.1/))
 │   ├── processed/                     # Cleaned CSVs
 │   └── schemas/                       # BigQuery table schemas
 ├── sql/
@@ -115,7 +115,7 @@ wearable-analytics-bigquery/
 
 ---
 
-## 🛠️ Technology Stack
+## Tech Stack
 
 - **Database**: Google BigQuery (partitioned & clustered tables)
 - **Languages**: SQL, Python 3.8+
@@ -126,7 +126,7 @@ wearable-analytics-bigquery/
 
 ---
 
-## 📈 Sample Insights
+## Sample Insights
 
 ### Recovery Time Analysis
 ```sql
@@ -163,63 +163,26 @@ GROUP BY user_segment, recommended_features;
 
 ---
 
-## 💡 Business Value
+## Business Value
 
-### For Myzone-like Companies:
-1. **MEPs Gamification**: Already implemented 6-zone effort points system
+### For Connected Fitness Companies:
+1. **Gamification**: Already implemented 6-zone effort points system
 2. **Recovery Coach**: Time-to-recovery metrics for rest day recommendations
 3. **Stress Alerts**: Real-time stress detection from multi-signal data
 4. **Personalization**: 6 user segments with tailored feature recommendations
 
-### For Product Managers:
-- ✅ Technical depth (SQL, BigQuery, data modeling)
-- ✅ Business thinking (user segmentation, feature recommendations)
-- ✅ Cost consciousness (99% optimization, $0 operating cost)
-- ✅ Stakeholder communication (clear documentation, diagrams)
-
 ---
 
-## 🎓 Key Learnings
-
-### Technical Skills Demonstrated
-1. **Data Architecture**: Star schema, partitioning, clustering
-2. **SQL Mastery**: Window functions, CTEs, complex aggregations
-3. **Cost Optimization**: Query tuning, partition pruning, materialized views
-4. **Python Engineering**: Data pipelines, error handling, automation
-5. **Product Analytics**: User segmentation, cohort analysis, metrics definition
-
-### PM Skills Demonstrated
-1. **Problem Decomposition**: Breaking complex problems into manageable pieces
-2. **Data-Driven Decision Making**: Using analytics to inform product direction
-3. **Technical Communication**: Documenting for both technical and non-technical audiences
-4. **Cost-Benefit Analysis**: Optimizing for performance vs. cost tradeoffs
-5. **User Empathy**: Designing features based on user segmentation
-
----
-
-## 🔮 Future Enhancements
+## Future Enhancements - Currently working on 
 
 ### Phase 2: Machine Learning
 - [ ] Build stress classification models (Random Forest, XGBoost)
 - [ ] Predict recovery time based on workout intensity
 - [ ] Anomaly detection for unusual physiological responses
 - [ ] Real-time inference using BigQuery ML
-
-### Phase 3: Real-Time Pipeline
-- [ ] Streaming ingestion with Pub/Sub
-- [ ] Real-time alerts for high stress or poor recovery
-- [ ] Live dashboard with Looker Studio
-- [ ] API for mobile app integration
-
-### Phase 4: Advanced Analytics
-- [ ] Sleep quality analysis (if extended monitoring)
-- [ ] Longitudinal trend analysis
-- [ ] Peer comparison benchmarks
-- [ ] Personalized training zone recommendations
-
 ---
 
-## 📚 Documentation
+## Documentation
 
 - **[Schema Design Rationale](docs/schema_design.md)** - Why star schema? Partitioning decisions
 - **[Feature Engineering](docs/feature_engineering_summary.md)** - HRV, stress, zones explained
@@ -230,36 +193,7 @@ GROUP BY user_segment, recommended_features;
 
 ---
 
-## 🏆 Project Stats
-
-- **Lines of SQL**: ~2,000
-- **Lines of Python**: ~800
-- **Tables Created**: 15 (4 fact, 4 dimension, 7 analytics)
-- **Queries Written**: 30+
-- **Documentation Pages**: 10+
-- **Diagrams**: 6
-- **Total Development Time**: ~40 hours
-
----
-
-## 👨‍💼 About This Project
-
-This project was built to demonstrate:
-1. **Technical depth** - Advanced SQL, data engineering, BigQuery optimization
-2. **Product thinking** - User segmentation, feature recommendations, business metrics
-3. **PM skills** - Documentation, communication, cost consciousness
-4. **Domain expertise** - Wearable tech, physiological signals, fitness analytics
-
-**Perfect for Product Manager roles at:**
-- Myzone (MEPs system, fitness tracking)
-- Whoop (recovery, strain, sleep)
-- Oura (readiness, HRV)
-- Hydrow (connected fitness)
-- Apple Health, Fitbit, Garmin
-
----
-
-## 📧 Contact
+## Contact
 
 **Keerthana Jaikumar**  
 Product Manager | Data Analytics | Wearable Tech  
@@ -267,13 +201,13 @@ Product Manager | Data Analytics | Wearable Tech
 
 ---
 
-## 📄 License
+## License
 
 MIT License - feel free to use this as a learning resource!
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Dataset**: [PhysioNet Wearable Exam Stress Dataset](https://physionet.org/content/wearable-exam-stress/1.0.1/)
 - **Authors**: Hongn, A., Bosch, F., Prado, L., & Bonomini, P. (2025)
