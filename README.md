@@ -6,8 +6,6 @@
 [![Cost](https://img.shields.io/badge/Monthly_Cost-$0-success)](docs/optimization_results.md)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
-> Advanced BigQuery analytics pipeline for wearable physiological data, demonstrating PM expertise in data architecture, product analytics, and cost optimization. Built to showcase technical depth for Product Manager roles at companies like Myzone, Whoop, Oura, and Hydrow.
-
 **Business Context:** Wearable fitness companies need to classify user states (stress, recovery, exercise intensity) to deliver personalized coaching. This project demonstrates end-to-end data analytics pipeline design, from raw sensor data to actionable product insights.
 
 ---
