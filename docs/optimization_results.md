@@ -63,14 +63,14 @@ This project demonstrates enterprise-grade BigQuery optimization achieving:
 | Dimension tables | < 1 GB | $0.02 |
 | **Total** | **~8 GB** | **$0.16** |
 
-**But:** First 10 GB is free → **Actual cost: $0** ✅
+**But:** First 10 GB is free → **Actual cost: $0** 
 
 ### Query Costs
 | Month | Queries | Data Processed | Cost |
 |-------|---------|----------------|------|
 | January (projected) | 1,500 | 150 GB | $0.00 |
 
-**Free tier:** 1 TB/month → **Actual cost: $0** ✅
+**Free tier:** 1 TB/month → **Actual cost: $0** 
 
 ### Total Monthly Cost: **$0**
 
@@ -93,14 +93,14 @@ Savings: 99% cost, 90% time
 
 ## Best Practices Implemented
 
-1. ✅ Partitioning on time column
-2. ✅ Clustering on filter columns
-3. ✅ Required partition filters
-4. ✅ Column-based queries (no SELECT *)
-5. ✅ Pre-aggregated analytics tables
-6. ✅ Cost monitoring automation
-7. ✅ Query result caching
-8. ✅ Proper data types (INT vs FLOAT)
+1.  Partitioning on time column
+2.  Clustering on filter columns
+3.  Required partition filters
+4.  Column-based queries (no SELECT *)
+5.  Pre-aggregated analytics tables
+6.  Cost monitoring automation
+7.  Query result caching
+8.  Proper data types (INT vs FLOAT)
 
 ## Monitoring & Alerts
 
@@ -111,8 +111,8 @@ Savings: 99% cost, 90% time
 - Anomaly detection
 
 **Alert thresholds:**
-- 🟡 Warning at 800 GB/month (80% free tier)
-- 🔴 Alert at 1 TB/month (free tier limit)
+-  Warning at 800 GB/month (80% free tier)
+-  Alert at 1 TB/month (free tier limit)
 
 ## Scalability Analysis
 
@@ -162,9 +162,9 @@ Savings: 99% cost, 90% time
 ## Conclusion
 
 This project demonstrates:
-1. ✅ Enterprise-grade architecture
-2. ✅ Production-ready optimization
-3. ✅ Cost-effective at scale
-4. ✅ PM understanding of technical tradeoffs
+1.  Enterprise-grade architecture
+2.  Production-ready optimization
+3.  Cost-effective at scale
+4.  PM understanding of technical tradeoffs
 
 **Perfect for showcasing to wearable tech companies like Myzone, Whoop, Oura!**
